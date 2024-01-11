@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  background-color: #121212;
+  color: #eee;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.8px;
+  position: relative;
+  width: min(160ch, 100% - 4rem);
+  margin-inline: auto;
+}
+
+::selection {
+  background-color: #eee;
+  color: #121212;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  text-wrap: balance;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+p {
+  margin: 0 0 0.4rem;
+}
+p:last-child {
+  margin: 0;
+}
+
+small {
+  line-height: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
