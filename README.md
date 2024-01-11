@@ -6,7 +6,6 @@
 - [Usage](#usage)
 - [Technologies](#technologies)
 - [Testing](#testing)
-- [Contributing](#contributing)
 
 ---
 
