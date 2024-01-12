@@ -7,14 +7,9 @@
 }
 
 body {
-  font-family: sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.4;
   background-color: #121212;
   color: #eee;
-  font-weight: 300;
   margin: 0;
-  letter-spacing: 0.8px;
   position: relative;
   width: min(160ch, 100% - 4rem);
   margin-inline: auto;

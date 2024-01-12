@@ -1,10 +1,10 @@
 import { useItems } from '@/hooks';
-import { ReactNode, createContext, useContext } from 'react';
+import { ReactNode, createContext } from 'react';
 
 type ItemsProviderProps = {
   children: ReactNode;
 };
-const ItemsContext = createContext({});
+export const ItemsContext = createContext({});
 
 export const ItemsProvider = ({ children }: ItemsProviderProps) => {
   const itemsContextValue = useItems();
@@ -14,14 +14,4 @@ export const ItemsProvider = ({ children }: ItemsProviderProps) => {
       {children}
     </ItemsContext.Provider>
   );
-};
-
-export const useItemsContext = () => {
-  const context = useContext(ItemsContext);
-
-  if (!context) {
-    throw new Error('useItemsContext must be used within an ItemsProvider');
-  }
-
-  return context;
 };

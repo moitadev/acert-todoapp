@@ -1,17 +1,17 @@
 import { Button, Input, Textarea } from '@/components';
 import { useState } from 'react';
-import { useItemsContext } from '@/context';
-import { ToDoComponentProps } from './ToDoComponent';
+import { useItemsContext } from '@/hooks';
+import { ToDoComponentProps } from '@/types';
 
 export const ToDoForm = (): JSX.Element => {
-  const { onAdd } = useItemsContext() as ToDoComponentProps;
+  const { addItem } = useItemsContext() as ToDoComponentProps;
   const [task, setTask] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (task !== '') {
-      onAdd(task, description);
+      addItem(task, description);
       setTask('');
       setDescription('');
     }
