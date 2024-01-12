@@ -16,7 +16,10 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={cn(buttonVariants({variant, size, className}))} {...props}>
+    <button
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    >
       {children}
     </button>
   );
@@ -27,12 +30,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-emerald-700 hover:bg-emerald-600 focus:ring-emerald-500 text-white',
-        secondary: 'bg-teal-700 hover:bg-teal-600 focus:ring-teal-500 text-white',
+        primary:
+          'bg-emerald-700 hover:bg-emerald-600 focus:ring-emerald-500 text-white',
+        secondary:
+          'bg-teal-700 hover:bg-teal-600 focus:ring-teal-500 text-white',
         danger: 'bg-rose-700 hover:bg-rose-600 focus:ring-rose-500 text-white',
-        outlinePrimary: 'hover:bg-emerald-700 border-1 border-emerald-700 focus:ring-emerald-500 text-emerald-700',
-        outlineSecondary: 'hover:bg-teal-700 border-1 border-teal-700 focus:ring-teal-500 text-teal-700',
-        outlineDanger: 'hover:bg-rose-700 border-1 border-rose-700 focus:ring-rose-500 text-rose-700',
+        outlinePrimary:
+          'hover:bg-emerald-700 hover:text-white border-2 border-emerald-700 focus:ring-emerald-500 text-emerald-700 bg-transparent',
+        outlineSecondary:
+          'hover:bg-teal-700 hover:text-white border-2 border-teal-700 focus:ring-teal-500 text-teal-700 bg-transparent',
+        outlineDanger:
+          'hover:bg-rose-700 hover:text-white border-2 border-rose-700 focus:ring-rose-500 text-rose-700 bg-transparent',
       },
       size: {
         sm: 'text-sm px-2 py-2',

@@ -1,23 +1,44 @@
-import { Button } from '@/components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ToDoForm } from './ToDoForm';
+import { ToDoItem } from './ToDoItem';
+import { Wrapper } from '@/components';
 
 export const Home = () => {
-  const [count, setCount] = useState(0);
+  const storedItems = JSON.parse(localStorage.getItem('items') ?? '[]');
+  const [items, setItems] = useState<{ task: string; description?: string }[]>(storedItems);
+
+  const onAdd = (task: string, description?: string) => {
+    const newItem = { task, description };
+    setItems([newItem, ...items]);
+  };
+
+  const onRemove = (index: number) => {
+    const itemsCopy = items.slice();
+    itemsCopy.splice(index, 1);
+
+    setItems(itemsCopy)
+  }
+
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
+
   return (
     <>
       <main className="flex justify-center flex-col">
-        <h1 className="text-3xl pt-4 text-center">
+        <h1 className="text-4xl font-bold pt-6 text-center">
           Teste técnico Acert - To-do List
         </h1>
-        <div className='flex gap-2 justify-center'>
-          <Button variant="primary" onClick={() => setCount(count + 1)}>
-            Incrementar
-          </Button>
-          <Button variant="danger" onClick={() => setCount(count - 1)}>
-            Decrementar
-          </Button>
-        </div>
-        <h2 className="text-xl font-bold pt-4 text-center">{count}</h2>
+        <ToDoForm handleAdd={onAdd} />
+        {items.length ? (
+          <Wrapper>
+            {items.map((item, index) => (
+              <ToDoItem key={index} index={index} handleRemove={onRemove} task={item.task} desc={item.description} />
+            ))}
+          </Wrapper>
+        ) : (
+          ''
+        )}
       </main>
     </>
   );
