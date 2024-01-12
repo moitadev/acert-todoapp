@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 interface ButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const Button = ({
@@ -26,15 +26,16 @@ export const Button = ({
 };
 
 const buttonVariants = cva(
-  'cursor-pointer select-none [outline:none] shadow-md mt-4 rounded-md',
+  'cursor-pointer select-none [outline:none] shadow-md mt-4 rounded-md h-full max-h-11',
   {
     variants: {
       variant: {
         primary:
-          'bg-emerald-700 hover:bg-emerald-600 focus:ring-emerald-500 text-white',
+          'bg-emerald-700 hover:bg-emerald-600 focus:ring-emerald-500 text-white border-2 border-emerald-700 hover:border-emerald-600',
         secondary:
-          'bg-teal-700 hover:bg-teal-600 focus:ring-teal-500 text-white',
-        danger: 'bg-rose-700 hover:bg-rose-600 focus:ring-rose-500 text-white',
+          'bg-teal-700 hover:bg-teal-600 focus:ring-teal-500 text-white border-2 border-teal-700 hover:border-teal-600',
+        danger:
+          'bg-rose-700 hover:bg-rose-600 focus:ring-rose-500 text-white border-2 border-rose-700 hover:border-rose-600',
         outlinePrimary:
           'hover:bg-emerald-700 hover:text-white border-2 border-emerald-700 focus:ring-emerald-500 text-emerald-700 bg-transparent',
         outlineSecondary:
