@@ -11,7 +11,7 @@ export const ToDoForm = (): JSX.Element => {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (task !== '') {
-      addItem(task, description);
+      addItem(task, false, description);
       setTask('');
       setDescription('');
     }

@@ -8,7 +8,7 @@ export const useItems = () => {
     );
 
   const addItem = (task: string, checked: boolean, description?: string) => {
-    const newItem = { task, description, checked };
+    const newItem = { task, checked, description, };
     setItems([newItem, ...items]);
   };
 
