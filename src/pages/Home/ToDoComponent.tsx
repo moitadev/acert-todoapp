@@ -23,7 +23,7 @@ export const ToDoComponent = () => {
     <>
       <ToDoForm />
       {items.length ? (
-        <Wrapper>
+        <Wrapper size="full">
           <div className="flex gap-3">
             <Button
               variant={filter === 'all' ? 'secondary' : 'outlineSecondary'}

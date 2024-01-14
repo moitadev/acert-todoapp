@@ -2,13 +2,19 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/util';
 import { useState } from 'react';
 
-interface AccordionProps extends VariantProps<typeof taskVariants | typeof descVariants> {
+interface AccordionProps
+  extends VariantProps<typeof taskVariants | typeof descVariants> {
   task: string;
   desc: string;
   className?: string;
 }
 
-export const Accordion = ({ className, variant, task, desc }: AccordionProps) => {
+export const Accordion = ({
+  className,
+  variant,
+  task,
+  desc,
+}: AccordionProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
@@ -18,7 +24,10 @@ export const Accordion = ({ className, variant, task, desc }: AccordionProps) =>
   return (
     <div className="w-full">
       <div
-        className={cn(taskVariants({ variant, className })+(isExpanded ? ' rounded-t-md' : ' rounded-md shadow-md'))}
+        className={cn(
+          taskVariants({ variant, className }) +
+            (isExpanded ? ' rounded-t-md' : ' rounded-md shadow-md')
+        )}
         onClick={handleToggle}
       >
         {task}
@@ -41,9 +50,7 @@ export const Accordion = ({ className, variant, task, desc }: AccordionProps) =>
         </svg>
       </div>
       {isExpanded && (
-        <div className={cn(descVariants({ variant, className }))}>
-          {desc}
-        </div>
+        <div className={cn(descVariants({ variant, className }))}>{desc}</div>
       )}
     </div>
   );
@@ -54,9 +61,8 @@ const taskVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-slate-600 focus:ring-emerald-500 text-white',
-        checkedItem:
-          'bg-emerald-800 focus:ring-emerald-700 line-through text-gray-200 italic',
+        default: 'bg-neutral-800 text-white',
+        checkedItem: 'bg-emerald-800 line-through text-gray-200 italic',
       },
     },
     defaultVariants: {
@@ -70,9 +76,9 @@ const descVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-slate-500 text-white',
+        default: 'bg-neutral-700 text-white',
         checkedItem:
-          'bg-emerald-700 focus:ring-emerald-600 line-through text-gray-200 italic',
+          'bg-emerald-700 line-through text-gray-200 italic',
       },
     },
     defaultVariants: {

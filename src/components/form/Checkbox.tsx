@@ -12,7 +12,7 @@ export const Checkbox = ({
   ...props
 }: CheckboxProps) => {
   return (
-    <div className='flex gap-2'>
+    <div className="flex gap-2">
       <input
         type="checkbox"
         className={cn(checkboxVariants({ variant, sizeVariant, className }))}
@@ -36,7 +36,7 @@ export const Checkbox = ({
 };
 
 const checkboxVariants = cva(
-  'mt-4 relative peer shrink-0 border-2 border-emerald-600 appearance-none rounded-md bg-white',
+  'mt-4 relative peer shrink-0 border-2 border-neutral-800 appearance-none rounded-md bg-transparent cursor-pointer',
   {
     variants: {
       variant: {

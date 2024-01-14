@@ -16,15 +16,20 @@ const inputVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-gray-100 focus:ring-emerald-500 text-gray-800 w-full',
+        default: 'bg-neutral-800 focus:ring-1 focus:ring-neutral-500 text-white placeholder-neutral-500',
         listItem:
-          'bg-slate-600 focus:ring-slate-800 text-white hover:cursor-default text-lg w-full',
+          'bg-neutral-800 text-white hover:cursor-default text-lg w-full',
         checkedItem:
           'bg-emerald-800 focus:ring-emerald-700 line-through text-gray-200 hover:cursor-default text-lg italic w-full',
       },
+      sizeVariant: {
+        full: 'w-full',
+        normal: '',
+      }
     },
     defaultVariants: {
       variant: 'default',
+      sizeVariant: 'full'
     },
   }
 );
