@@ -5,9 +5,9 @@ interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputVariants> {}
 
-export const Input = ({ className, variant, ...props }: InputProps) => {
+export const Input = ({ className, variant, sizeVariant, ...props }: InputProps) => {
   return (
-    <input className={cn(inputVariants({ variant, className }))} {...props} />
+    <input className={cn(inputVariants({ className, variant, sizeVariant }))} {...props} />
   );
 };
 
