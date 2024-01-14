@@ -3,27 +3,28 @@ import { useItemsContext } from '@/hooks';
 import { ToDoComponentProps } from '@/types';
 
 type ToDoItemProps = {
-  index: number;
   task: string;
+  checked: boolean;
   desc?: string;
+  index: number;
 };
 
-export const ToDoItem = ({ task, desc, index }: ToDoItemProps) => {
-  const { removeItem, checkItem, items } = useItemsContext() as ToDoComponentProps;
+export const ToDoItem = ({ task, checked, desc, index }: ToDoItemProps) => {
+  const { removeItem, checkItem } = useItemsContext() as ToDoComponentProps;
   return (
     <>
       {desc ? (
         <div>
           <div className="flex gap-2 items-start w-full">
-            <Checkbox checked={items[index].checked} onChange={(e) => checkItem(index, e.target.checked) } />
-            <Accordion task={task} desc={desc} variant={items[index].checked ? "checkedItem" : "default"} />
+            <Checkbox checked={checked} onChange={(e) => checkItem(index, e.target.checked) } />
+            <Accordion task={task} desc={desc} variant={checked ? "checkedItem" : "default"} />
             <Button variant="danger" onClick={() => removeItem(index)}>x</Button>
           </div>
         </div>
       ) : (
         <div className="flex gap-2">
-          <Checkbox checked={items[index].checked} onChange={(e) => checkItem(index, e.target.checked) } />
-          <Input value={task} variant={items[index].checked ? "checkedItem" : "listItem"}  readOnly />
+          <Checkbox checked={checked} onChange={(e) => checkItem(index, e.target.checked) } />
+          <Input value={task} variant={checked ? "checkedItem" : "listItem"}  readOnly />
           <Button variant="danger" onClick={() => removeItem(index)}>x</Button>
         </div>
       )}
