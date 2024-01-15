@@ -1,9 +1,18 @@
 import { ItemsProvider } from '@/context';
 import { ToDoComponent } from './ToDoComponent';
-
+import { Button } from '@/components';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '@/util';
 
 export const Home = () => {
 
+  const history = useNavigate();
+  const handleSignOut = async () => {
+    await signOut(auth).then(() => {
+      history('/login');
+    });
+  };
   return (
     <>
       <main className="flex justify-center flex-col">
@@ -13,6 +22,13 @@ export const Home = () => {
         <ItemsProvider>
           <ToDoComponent />
         </ItemsProvider>
+        <Button
+          className="self-center"
+          variant="outlineDanger"
+          onClick={handleSignOut}
+        >
+          Sair
+        </Button>
       </main>
     </>
   );

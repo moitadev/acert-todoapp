@@ -1,9 +1,12 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/util';
+import { RefObject } from 'react';
 
 interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> {}
+    VariantProps<typeof inputVariants> {
+      ref?:  RefObject<HTMLInputElement>;
+    }
 
 export const Input = ({ className, variant, sizeVariant, ...props }: InputProps) => {
   return (
