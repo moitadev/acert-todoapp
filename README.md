@@ -53,7 +53,7 @@ or
 yarn dev
 ```
 
-This will start the development server, and you can access the app at `http://localhost:5173 in your web browser.
+This will start the development server, and you can access the app at http://localhost:5173 in your web browser.
 
 ---
 
@@ -66,10 +66,22 @@ This to-do app is built using the following technologies:
 - [ESLint](https://eslint.org/)
 - [Jest](https://jestjs.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
--- [clsx](https://www.npmjs.com/package/clsx)
--- [cva](https://cva.style/docs)
+  - [clsx](https://www.npmjs.com/package/clsx)
+  - [cva](https://cva.style/docs)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
+- [Firebase](https://firebase.google.com/) (Authentication)
+
+### Additional Features
+
+- **Firebase Authentication:** User authentication and login are handled using Firebase Authentication.
+
+### Error Handling and Translation
+
+The application includes:
+
+- **Error Humanization:** Some of the error messages are humanized for better user understanding.
+- **Error Translation:** Error messages are translated to brazillian portuguese to keep the application localized 🇧🇷.
 
 ---
 
@@ -91,4 +103,4 @@ This will run the test suite and provide you with feedback on the test results.
 
 ---
 
-If you run into any problems feel free to reach me out!
+If you run into any problems, feel free to reach me out!
